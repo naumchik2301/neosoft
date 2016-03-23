@@ -8,7 +8,7 @@ import os
 import signal
 import socket
 #import server.bin.post
-import server.bin.get
+import get
 import io
 
 SERVER_ADDRESS = (HOST, PORT) = '', 8888
@@ -38,7 +38,7 @@ def handle_request(client_connection):
         if response_line.startswith('POST'):
             print ('POST')
         if response_line.startswith('GET'):
-            http_response = server.bin.get.getFileList()
+            http_response = get.getFileList()
             print ('GET')    
     
 #    print(request.decode())
