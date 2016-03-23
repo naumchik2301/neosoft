@@ -32,7 +32,7 @@ def grim_reaper(signum, frame):
 def handle_request(client_connection):
     request = client_connection.recv(1024)
     
-    buf = io.StringIO(request)
+    buf = io.StringIO(request.decode())
     for response_line in buf.readlines():
         print (response_line)
         if response_line.startswith('POST'):
