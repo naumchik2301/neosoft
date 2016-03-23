@@ -7,7 +7,7 @@ import errno
 import os
 import signal
 import socket
-import server.bin.post
+#import server.bin.post
 import server.bin.get
 import io
 
