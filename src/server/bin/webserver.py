@@ -7,9 +7,11 @@ import errno
 import os
 import signal
 import socket
-#import server.bin.post
-import get
 import io
+#Internal libraries
+import get
+import post
+
 
 SERVER_ADDRESS = (HOST, PORT) = '', 8888
 REQUEST_QUEUE_SIZE = 1024

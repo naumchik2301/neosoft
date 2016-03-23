@@ -9,7 +9,6 @@ Created on 2016. gada 23. marts
 def getFileList():
     return b'''
     <HTML>
-    Hello
-    World
+    <b>Hello World</b>
     </HTML>
     '''
