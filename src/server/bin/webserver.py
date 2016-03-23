@@ -7,6 +7,9 @@ import errno
 import os
 import signal
 import socket
+import server.bin.post
+import server.bin.get
+import io
 
 SERVER_ADDRESS = (HOST, PORT) = '', 8888
 REQUEST_QUEUE_SIZE = 1024
@@ -28,12 +31,22 @@ def grim_reaper(signum, frame):
 
 def handle_request(client_connection):
     request = client_connection.recv(1024)
-    print(request.decode())
-    http_response = b"""\
-HTTP/1.1 200 OK
+    
+    buf = io.StringIO(request)
+    for response_line in buf.readlines():
+        print (response_line)
+        if response_line.startswith('POST'):
+            print ('POST')
+        if response_line.startswith('GET'):
+            http_response = server.bin.get.getFileList()
+            print ('GET')    
+    
+#    print(request.decode())
+#    http_response = b"""\
+#HTTP/1.1 200 OK
 
-Hello, World!
-"""
+#Hello, World!
+#"""
     
     client_connection.sendall(http_response)
 
